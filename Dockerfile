@@ -1,23 +1,9 @@
 FROM node:alpine
+LABEL description="Instant high-performance GraphQL API for your PostgreSQL database https://github.com/graphile/postgraphile"
 
+# Install PostGraphile and PostGraphile connection filter plugin
 RUN npm install -g postgraphile
 RUN npm install -g postgraphile-plugin-connection-filter
-RUN npm install -g @graphile/pg-pubsub
 
 EXPOSE 5000
-
-ENV PORT 5000
-ENV SCHEMA "public,eth"
-ENV PG_USER "vdbm"
-ENV PG_PASSWORD "password"
-ENV PG_HOST "contact-watcher-db"
-ENV PG_PORT 5432
-ENV PG_DATABASE "vulcanize_public"
-
-CMD ["/bin/sh", "-c", "postgraphile \
-     --plugins @graphile/pg-pubsub --subscriptions --simple-subscriptions \
-     --connection postgres://${PG_USER}:${PG_PASSWORD}@${PG_HOST}:${PG_PORT}/${PG_DATABASE} \
-     --port ${PORT} \
-     -n 0.0.0.0 \
-     --schema ${SCHEMA} \
-     --append-plugins postgraphile-plugin-connection-filter"]
+ENTRYPOINT ["postgraphile", "-n", "0.0.0.0"]
