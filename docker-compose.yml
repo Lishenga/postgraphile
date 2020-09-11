@@ -18,7 +18,7 @@ services:
         "5433",
         "--append-plugins",
         "postgraphile-plugin-connection-filter",
-        " --subscriptions",
+        "--subscriptions",
         "--watch",
         "--dynamic-json",
         "--no-setof-functions-contain-nulls",
