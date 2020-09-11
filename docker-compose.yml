@@ -34,7 +34,7 @@ services:
         "--enhance-graphiql",
         "--allow-explain",
         "--enable-query-batching",
-        "--legacy-relation",
+        "--legacy-relations",
         "omit",
       ]
 
