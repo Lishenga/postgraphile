@@ -36,6 +36,8 @@ services:
         "--enable-query-batching",
         "--legacy-relations",
         "omit",
+        "--schema", 
+        "b2b_api",
       ]
 
 # command: ["--connection", "${DATABASE_URL}", "--port", "5433", "--schema", "public", "--append-plugins", "postgraphile-plugin-connection-filter"]
