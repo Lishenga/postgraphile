@@ -11,5 +11,5 @@ services:
             - ./.env
         ports:
             - 5433:5433
-        command: ["--connection", "${DATABASE_URL}", "--port", "5433", "--append-plugins", "postgraphile-plugin-connection-filter"]
+        command: ["--connection", "${DATABASE_URL}", "--port", "5433", "--append-plugins", "postgraphile-plugin-connection-filter", " --subscriptions", "--watch", "--dynamic-json", "--no-setof-functions-contain-nulls", "--no-ignore-rbac", "--no-ignore-indexes", "--show-error-stack=json", "--extended-errors", "hint,detail,errcode", "--export-schema-graphql", "schema.graphql", "--graphiql", ""/"", "--enhance-graphiql", "--allow-explain", "--enable-query-batching", "--legacy-relation", "omit"]
 # command: ["--connection", "${DATABASE_URL}", "--port", "5433", "--schema", "public", "--append-plugins", "postgraphile-plugin-connection-filter"]
