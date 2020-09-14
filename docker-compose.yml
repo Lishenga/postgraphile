@@ -49,6 +49,8 @@ services:
       - ./.env
     command:
       [
+      "npx",
+      "apollo",
       "service:push",
       "--graph=OvesStaging",
       "--key=service:OvesStaging:mMfyJNZvsooyU7eQv5zTPQ",
