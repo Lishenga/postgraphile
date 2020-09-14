@@ -45,7 +45,6 @@ services:
     ports:
       - "5433:5433"
     entrypoint:
-      - -Ehttp.port=5433
       - -Ehttp.cors.enabled=true
       - -Ehttp.cors.allow-origin=xxx
       - -Ehttp.cors.allow-headers=Content-Type,Content-Length,Authorization
