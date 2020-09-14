@@ -8,8 +8,8 @@ services:
       context: .
     env_file:
       - ./.env
-    expose:
-      - "5433"
+    ports:
+      - "5433:5433"
     command:
       [
         "--connection",
@@ -30,6 +30,8 @@ services:
         "--export-schema-graphql",
         "schema.graphql",
         "--graphiql",
+        "-o",
+        "--cors",
         "/",
         "--enhance-graphiql",
         "--allow-explain",
@@ -40,10 +42,10 @@ services:
         "b2b_api",
       ]
 
-  nginx-auth:
-    build: ./nginx
-    ports:
-      - "5433:5433"
-    depends_on:
-      - graphql
+#   nginx-auth:
+#     build: ./nginx
+#     ports:
+#       - "5433:5433"
+#     depends_on:
+#       - graphql
 # command: ["--connection", "${DATABASE_URL}", "--port", "5433", "--schema", "public", "--append-plugins", "postgraphile-plugin-connection-filter"]
