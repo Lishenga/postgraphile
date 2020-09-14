@@ -12,6 +12,8 @@ services:
       - 5433:5433
     command:
       [
+        "--cors",
+        "-c",
         "--connection",
         "${DATABASE_URL}",
         "--port",
