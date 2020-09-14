@@ -7,4 +7,4 @@ RUN npm install -g postgraphile-plugin-connection-filter
 RUN npm install -g apollo
 
 EXPOSE 5000
-ENTRYPOINT ["postgraphile", "-n", "0.0.0.0", "apollo"]
+ENTRYPOINT ["postgraphile", "-n", "0.0.0.0"]
