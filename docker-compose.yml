@@ -39,23 +39,4 @@ services:
         "--schema", 
         "b2b_api",
       ]
-  apollo:
-    container_name: apollow
-    restart: always
-    image: test-apollo
-    build:
-      context: .
-    env_file:
-      - ./.env
-    command:
-      [
-      "npx",
-      "apollo",
-      "service:push",
-      "--graph=OvesStaging",
-      "--key=service:OvesStaging:mMfyJNZvsooyU7eQv5zTPQ",
-      "--variant=current",
-      "--endpoint=http://18.136.183.201:5433/"
-      ]
-
 # command: ["--connection", "${DATABASE_URL}", "--port", "5433", "--schema", "public", "--append-plugins", "postgraphile-plugin-connection-filter"]
